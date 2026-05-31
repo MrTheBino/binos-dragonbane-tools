@@ -1,0 +1,59 @@
+<div class="db-hud-characters">
+	{{#each players}}
+	<div class="db-hud-character" data-token-id="{{tokenId}}" data-uuid="{{uuid}}">
+
+		<div class="db-hud-portrait">
+			<img src="{{img}}" alt="{{name}}" />
+		</div>
+
+		<div class="db-hud-info">
+			<div class="db-hud-name-row">
+				<span class="db-hud-name">{{name}}</span>
+				<span class="db-hud-armor" data-tooltip="Armor">
+					<i class="fa-solid fa-shield-halved"></i> {{armor}}
+				</span>
+			</div>
+
+			<div class="db-hud-bar-row">
+				<span class="db-hud-bar-label" data-tooltip="Hit Points">HP</span>
+				<div class="db-hud-bar-track">
+					<div class="db-hud-bar hp {{hpStatus}}" style="width: {{hpPercent}}%"></div>
+					<input
+						type="text"
+						class="scene-hud-stat-input"
+						data-field="hp"
+						data-value="{{hpValue}}"
+						data-uuid="{{uuid}}"
+						value="{{hpValue}}"
+					/>
+					<span class="db-hud-divider">/</span>
+					<input type="text" data-field="hp-max" value="{{hpMax}}" disabled />
+				</div>
+			</div>
+
+			<div class="db-hud-bar-row">
+				<span class="db-hud-bar-label" data-tooltip="Will Points">WP</span>
+				<div class="db-hud-bar-track">
+					<div class="db-hud-bar wp {{wpStatus}}" style="width: {{wpPercent}}%"></div>
+					<input
+						type="text"
+						class="scene-hud-stat-input"
+						data-field="wp"
+						data-value="{{wpValue}}"
+						data-uuid="{{uuid}}"
+						value="{{wpValue}}"
+					/>
+					<span class="db-hud-divider">/</span>
+					<input type="text" data-field="wp-max" value="{{wpMax}}" disabled />
+				</div>
+			</div>
+			<div class="db-hud-conditions">
+				{{#each conditions}}
+				<span class="db-hud-condition {{#if active}}active{{/if}}" data-condition="{{key}}" data-tooltip="{{label}}">{{shortLabel}}</span>
+				{{/each}}
+			</div>
+		</div>
+
+	</div>
+	{{/each}}
+</div>

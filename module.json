@@ -1,0 +1,25 @@
+{
+  "id": "binos-dragonbane-tools",
+  "title": "Bino's Dragonbane Tools",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "14",
+    "verified": "14"
+  },
+  "flags": {
+    "canUpload": true
+  },
+  "relationships": {
+    "systems": [
+      {
+        "id": "dragonbane",
+        "type": "system",
+        "compatibility": {}
+      }
+    ]
+  },
+  "action": "manageModule",
+  "description": "",
+  "esmodules": ["binos-dragonbane-tools.mjs"],
+  "styles": ["styles/scene-player-hud.css"]
+}
