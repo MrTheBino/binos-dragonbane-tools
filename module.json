@@ -1,7 +1,7 @@
 {
   "id": "binos-dragonbane-tools",
   "title": "Bino's Dragonbane Tools",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "compatibility": {
     "minimum": "14",
     "verified": "14"
