@@ -20,6 +20,20 @@
   },
   "action": "manageModule",
   "description": "",
+  "url": "",
+  "manifest": "",
+  "download": "",
+  "languages": [
+    { "lang": "en", "name": "English", "path": "lang/en.json" },
+    { "lang": "de", "name": "Deutsch", "path": "lang/de.json" },
+    { "lang": "es", "name": "Español", "path": "lang/es.json" },
+    { "lang": "fr", "name": "Français", "path": "lang/fr.json" },
+    { "lang": "it", "name": "Italiano", "path": "lang/it.json" },
+    { "lang": "pl", "name": "Polski", "path": "lang/pl.json" },
+    { "lang": "pt-BR", "name": "Português (Brasil)", "path": "lang/pt-br.json" },
+    { "lang": "sv", "name": "Svenska", "path": "lang/sv.json" },
+    { "lang": "zh-tw", "name": "正體中文", "path": "lang/zh-tw.json" }
+  ],
   "esmodules": ["binos-dragonbane-tools.mjs"],
   "styles": ["styles/scene-player-hud.css"]
 }

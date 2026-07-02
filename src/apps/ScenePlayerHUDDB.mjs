@@ -101,10 +101,10 @@ export class ScenePlayerHUDDB extends HandlebarsApplicationMixin(ApplicationV2) 
 
 	_onRender(context, options) {
 		if (game.user.isGM) {
-			for (const portrait of this.element.querySelectorAll(".scene-hud-portrait")) {
+			for (const portrait of this.element.querySelectorAll(".db-hud-portrait")) {
 				portrait.style.cursor = "pointer";
 				portrait.addEventListener("click", async () => {
-					const uuid = portrait.closest(".scene-hud-character").dataset.uuid;
+					const uuid = portrait.closest(".db-hud-character").dataset.uuid;
 					const actor = await fromUuid(uuid);
 					actor?.sheet?.render(true);
 				});

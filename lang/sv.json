@@ -1,0 +1,11 @@
+{
+  "BINOS-DB": {
+    "hud": {
+      "armor": "Rustning",
+      "hitPoints": "Kroppspoäng",
+      "willPoints": "Viljepoäng",
+      "hpLabel": "KP",
+      "wpLabel": "VP"
+    }
+  }
+}

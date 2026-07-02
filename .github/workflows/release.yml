@@ -1,0 +1,70 @@
+name: Release
+
+# Publishes a Foundry VTT module package when a version tag is pushed.
+# Distribution is via GitHub Releases only (not the Foundry package hub).
+#
+# Usage:
+#   1. Bump "version" in module.json (optional — the tag is the source of truth).
+#   2. git tag v1.2.3 && git push origin v1.2.3
+#
+# The workflow rewrites module.json's version/url/manifest/download fields, zips
+# the module, and attaches module.json + module.zip to a GitHub Release.
+# Install/auto-update in Foundry uses the "latest release" manifest URL:
+#   https://github.com/<owner>/<repo>/releases/latest/download/module.json
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Derive version and URLs
+        id: meta
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          REPO_URL="https://github.com/${GITHUB_REPOSITORY}"
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+          echo "url=${REPO_URL}" >> "$GITHUB_OUTPUT"
+          echo "manifest=${REPO_URL}/releases/latest/download/module.json" >> "$GITHUB_OUTPUT"
+          echo "download=${REPO_URL}/releases/download/${GITHUB_REF_NAME}/module.zip" >> "$GITHUB_OUTPUT"
+
+      - name: Inject metadata into module.json
+        run: |
+          jq \
+            --arg version "${{ steps.meta.outputs.version }}" \
+            --arg url      "${{ steps.meta.outputs.url }}" \
+            --arg manifest "${{ steps.meta.outputs.manifest }}" \
+            --arg download "${{ steps.meta.outputs.download }}" \
+            '.version = $version | .url = $url | .manifest = $manifest | .download = $download' \
+            module.json > module.json.tmp
+          mv module.json.tmp module.json
+          cat module.json
+
+      - name: Create module.zip
+        run: |
+          zip -r module.zip \
+            module.json \
+            binos-dragonbane-tools.mjs \
+            src \
+            styles \
+            templates \
+            lang
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: ${{ steps.meta.outputs.version }}
+          tag_name: ${{ github.ref_name }}
+          files: |
+            module.json
+            module.zip
+          fail_on_unmatched_files: true

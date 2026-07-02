@@ -1,0 +1,11 @@
+{
+  "BINOS-DB": {
+    "hud": {
+      "armor": "Zbroja",
+      "hitPoints": "Wytrzymałość",
+      "willPoints": "Siła Woli",
+      "hpLabel": "HP",
+      "wpLabel": "WP"
+    }
+  }
+}

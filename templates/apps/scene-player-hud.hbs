@@ -9,13 +9,13 @@
 		<div class="db-hud-info">
 			<div class="db-hud-name-row">
 				<span class="db-hud-name">{{name}}</span>
-				<span class="db-hud-armor" data-tooltip="Armor">
+				<span class="db-hud-armor" data-tooltip="{{localize "BINOS-DB.hud.armor"}}">
 					<i class="fa-solid fa-shield-halved"></i> {{armor}}
 				</span>
 			</div>
 
 			<div class="db-hud-bar-row">
-				<span class="db-hud-bar-label" data-tooltip="Hit Points">HP</span>
+				<span class="db-hud-bar-label" data-tooltip="{{localize "BINOS-DB.hud.hitPoints"}}">{{localize "BINOS-DB.hud.hpLabel"}}</span>
 				<div class="db-hud-bar-track">
 					<div class="db-hud-bar hp {{hpStatus}}" style="width: {{hpPercent}}%"></div>
 					<input
@@ -32,7 +32,7 @@
 			</div>
 
 			<div class="db-hud-bar-row">
-				<span class="db-hud-bar-label" data-tooltip="Will Points">WP</span>
+				<span class="db-hud-bar-label" data-tooltip="{{localize "BINOS-DB.hud.willPoints"}}">{{localize "BINOS-DB.hud.wpLabel"}}</span>
 				<div class="db-hud-bar-track">
 					<div class="db-hud-bar wp {{wpStatus}}" style="width: {{wpPercent}}%"></div>
 					<input

@@ -1,0 +1,11 @@
+{
+  "BINOS-DB": {
+    "hud": {
+      "armor": "護甲",
+      "hitPoints": "生命值",
+      "willPoints": "意志值",
+      "hpLabel": "生命",
+      "wpLabel": "意志"
+    }
+  }
+}

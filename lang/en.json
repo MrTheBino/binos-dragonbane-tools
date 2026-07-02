@@ -1,0 +1,11 @@
+{
+  "BINOS-DB": {
+    "hud": {
+      "armor": "Armor",
+      "hitPoints": "Hit Points",
+      "willPoints": "Willpower Points",
+      "hpLabel": "HP",
+      "wpLabel": "WP"
+    }
+  }
+}
