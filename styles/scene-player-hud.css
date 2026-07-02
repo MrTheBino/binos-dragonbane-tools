@@ -49,7 +49,7 @@
   display: flex;
   flex-direction: column;
   gap: 3px;
-  min-width: 160px;
+  min-width: 130px;
 }
 
 .db-hud-name-row {
@@ -83,20 +83,19 @@
 
 /* ── Bar rows (HP / WP) ─────────────────────────────── */
 
+/* HP and WP sit side by side on one line to save vertical space. */
+.db-hud-bars {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
 .db-hud-bar-row {
   display: flex;
   align-items: center;
   gap: 4px;
-}
-
-.db-hud-bar-label {
-  font-size: 9px;
-  font-weight: bold;
-  color: rgba(255, 255, 255, 0.6);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
-  width: 16px;
-  flex: none;
-  text-align: right;
+  flex: 1;
+  min-width: 0;
 }
 
 .db-hud-bar-track {
@@ -147,7 +146,7 @@
   font-size: 11px;
   font-weight: bold;
   text-align: center;
-  width: 40px;
+  width: 26px;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
   padding: 0;
 }
